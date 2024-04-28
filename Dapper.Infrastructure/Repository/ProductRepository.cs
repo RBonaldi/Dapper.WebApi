@@ -19,8 +19,8 @@ namespace Dapper.Infrastructure.Repository
         }
         public async Task<int> AddAsync(Product entity)
         {
-            entity.AddedOn = DateTime.Now;
-            var sql = "Insert into Products (Name,Description,Barcode,Rate,AddedOn) VALUES (@Name,@Description,@Barcode,@Rate,@AddedOn)";
+            entity.CreatedOn = DateTime.Now;
+            var sql = "Insert into Products (Name,Description,Barcode,Rate,CreatedOnx) VALUES (@Name,@Description,@Barcode,@Rate,@CreatedOn)";
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -42,7 +42,7 @@ namespace Dapper.Infrastructure.Repository
 
         public async Task<IReadOnlyList<Product>> GetAllAsync()
         {
-            var sql = "SELECT * FROM Products";
+            var sql = "SELECT * FROM Product";
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
