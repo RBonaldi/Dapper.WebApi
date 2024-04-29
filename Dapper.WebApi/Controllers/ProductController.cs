@@ -17,7 +17,6 @@ namespace Dapper.WebApi.Controllers
 
         public ProductController(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
