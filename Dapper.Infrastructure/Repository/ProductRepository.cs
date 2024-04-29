@@ -35,7 +35,7 @@ namespace Dapper.Infrastructure.Repository
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var result = await connection.ExecuteAsync(sql, new { Id = id });
+                var result = await connection.ExecuteAsync(sql, new { Identificador = id });
                 return result;
             }
         }
